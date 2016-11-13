@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Iorga-Bercaru WAD
+Iorga-Bercaru WAD 2016
 @endsection
 
 @section('content')
