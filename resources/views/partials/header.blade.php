@@ -33,14 +33,14 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Shhopping Cart</a></li>
+                <li><a href="#" class="fa fa-shopping-cart"> Shop Cart</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             @if(Auth::user())
                                 {{Auth::user()->firstName}} {{Auth::user()->lastName}}
                             @endif
                             @if(!Auth::user())
-                               Users
+                                    <i class="fa fa-user" aria-hidden="true"></i> Users
                             @endif
                         <span class="caret"></span></a>
                     @if(Auth::user())
