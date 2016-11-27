@@ -36,12 +36,33 @@ Route::post('/signin', [
     'as' => 'user.signin'
 ]);
 
-Route::get('/users/profile',[
+Route::get('/users/profile', [
     'uses' => 'UserController@getProfile',
     'as' => 'user.profile'
 ]);
 
-Route::get('/logout',[
+Route::get('/logout', [
     'uses' => 'UserController@getLogout',
     'as' => 'user.logout'
+]);
+
+
+Route::get('/tv', [
+    'uses' => 'productController@getTVProducts',
+    'as' => 'product.tv'
+]);
+
+Route::get('/category/{id}', [
+    'uses' => 'productController@getCatProducts',
+    'as' => 'product.id'
+]);
+
+Route::get('/add-to-cart/{id}', [
+    'uses' => 'productController@getAddToCart',
+    'as' => 'product.addToCart'
+]);
+
+Route::get('/shopping-cart', [
+    'uses' => 'productController@getShoppingCart',
+    'as' => 'product.shoppingCart'
 ]);
