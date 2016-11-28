@@ -7,6 +7,7 @@ use App\User;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -44,6 +45,7 @@ class UserController extends Controller
         ]);
 
         if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
+           Session::put(Session::get('cart'), Auth::user);
             return redirect()->route('user.profile');
         }
         return redirect()->back();

@@ -26,7 +26,7 @@ Iorga-Bercaru WAD 2016
 
                             <div class="clearfix">
                                 <a href="#" class="btn btn-default  btn-xs pull-left" role="button">View Details</a>
-                                <a href="#" class="btn btn-primary  btn-xs pull-right" role="button">Add to Cart</a>
+                                <a href="{{Route('product.addToCart', [$product->id])}}" class="btn btn-primary  btn-xs pull-right" role="button">Add to Cart</a>
                             </div>
                             <div  style="margin: 8px;"></div>
                         </div>
