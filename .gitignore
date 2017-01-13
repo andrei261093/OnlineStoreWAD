@@ -25,3 +25,7 @@ Homestead.json
 # Mongo Explorer plugin:
 .idea/mongoSettings.xml
 
+
+*.xml
+
+*.xml

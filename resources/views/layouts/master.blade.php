@@ -7,11 +7,15 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 	<link rel="stylesheet" href="{{ URL::to('src/css/app.css') }}">
 
+
 	@yield('styles')
 </head>
 <body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+
 	@include('partials.header')
-	<div class="container">
+	<div class="container centered">
 		@yield('content')
 	</div>
 

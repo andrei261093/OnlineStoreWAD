@@ -21,6 +21,7 @@ Route::group(['prefix' => 'user'], function () {
 
     Route::get('/signup', [
         'uses' => 'UserController@getSignup',
+
         'as' => 'user.signup',
         'middleware' => 'guest'
     ]);
@@ -95,4 +96,9 @@ Route::get('/checkout', [
 Route::post('/checkout', [
     'uses' => 'productController@postckeckout',
     'as' => 'checkout'
+]);
+
+Route::get('/autocomplete', [
+    'uses' => 'SearchController@autocomplete',
+    'as' => 'autocomplete'
 ]);
