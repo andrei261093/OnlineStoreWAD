@@ -35,19 +35,11 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
-                <li><a href="#" class="fa fa-shopping-cart"> Shop Cart</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            @if(Auth::user())
-                                {{Auth::user()->firstName}} {{Auth::user()->lastName}}
-                            @endif
-                            @if(!Auth::user())
-                                    <i class="fa fa-user" aria-hidden="true"></i> Users
-                            @endif
-=======
+
+
+
                 <li><a href="{{Route('product.shoppingCart')}}">
-                        Shhopping Cart
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shop Cart
                         <span class="badge">{{\Illuminate\Support\Facades\Session::has('cart') ? \Illuminate\Support\Facades\Session::get('cart')->totalQty : '' }}</span>
                     </a>
                 </li>
@@ -58,9 +50,9 @@
                             {{Auth::user()->firstName}} {{Auth::user()->lastName}}
                         @endif
                         @if(!Auth::user())
-                            Users
+                                <i class="fa fa-user" aria-hidden="true"></i> Users
                         @endif
->>>>>>> aed721eb90fc2882bf65420e69a93b1c723272a2
+
                         <span class="caret"></span></a>
                     @if(Auth::user())
                         <ul class="dropdown-menu">
@@ -68,6 +60,7 @@
                             <li><a href="{{route('user.profile')}}">Profile</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{{route('user.logout')}}">Logout</a></li>
+                            
                         </ul>
                     @endif
                     @if(!Auth::user())

@@ -45,7 +45,7 @@ class UserController extends Controller
         ]);
 
         if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
-           Session::put(Session::get('cart'), Auth::user);
+           //Session::put(Session::get('cart'), Auth::user);
             return redirect()->route('user.profile');
         }
         return redirect()->back();
