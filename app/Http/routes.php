@@ -21,32 +21,42 @@ Route::group(['prefix' => 'user'], function () {
 
     Route::get('/signup', [
         'uses' => 'UserController@getSignup',
+<<<<<<< HEAD
         'as' => 'user.signup'
+=======
+        'as' => 'user.signup',
+        'middleware' => 'guest'
+>>>>>>> origin/master
     ]);
 
     Route::post('/signup', [
         'uses' => 'UserController@postSignup',
-        'as' => 'user.signup'
+        'as' => 'user.postsignup',
+        'middleware' => 'guest'
     ]);
 
     Route::get('/signin', [
         'uses' => 'UserController@getSignin',
-        'as' => 'user.signin'
+        'as' => 'user.signin',
+        'middleware' => 'guest'
     ]);
 
     Route::post('/signin', [
         'uses' => 'UserController@postSignin',
-        'as' => 'user.signin'
+        'as' => 'user.signin',
+        'middleware' => 'guest'
     ]);
 
     Route::get('/profile', [
         'uses' => 'UserController@getProfile',
-        'as' => 'user.profile'
+        'as' => 'user.profile',
+        'middleware' => 'auth'
     ]);
 
     Route::get('/logout', [
         'uses' => 'UserController@getLogout',
-        'as' => 'user.logout'
+        'as' => 'user.logout',
+        'middleware' => 'auth'
     ]);
 
 });
@@ -70,4 +80,14 @@ Route::get('/add-to-cart/{id}', [
 Route::get('/shopping-cart', [
     'uses' => 'productController@getShoppingCart',
     'as' => 'product.shoppingCart'
+]);
+
+Route::get('/checkout', [
+    'uses' => 'productController@getCheckout',
+    'as' => 'checkout'
+]);
+
+Route::post('/checkout', [
+    'uses' => 'productController@postckeckout',
+    'as' => 'checkout'
 ]);
