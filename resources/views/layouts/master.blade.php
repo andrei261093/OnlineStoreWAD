@@ -11,7 +11,8 @@
 </head>
 <body>
 	@include('partials.header')
-	<div class="container">
+
+	<div class="container centered">
 		@yield('content')
 	</div>
 

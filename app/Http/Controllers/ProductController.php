@@ -13,14 +13,14 @@ class ProductController extends Controller
 {
     public function getIndex()
     {
-        $products = Product::all();
+        $products = Product::paginate(15);;
 
         return view('shop.index', ['products' => $products]);
     }
 
     public function getCatProducts($cat_id)
     {
-        $tvProducts = Product::where('categoryId', '=', $cat_id)->get();
+        $tvProducts = Product::where('categoryId', '=', $cat_id)->paginate(15);
         return view('shop.index', ['products' => $tvProducts]);
     }
 

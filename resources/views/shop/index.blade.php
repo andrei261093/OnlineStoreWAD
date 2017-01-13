@@ -6,9 +6,9 @@ Iorga-Bercaru WAD 2016
 
 @section('content')
     @foreach($products->chunk(5) as $productChunk)
-        <div class="row">
+        <div class="row center-block clearfix">
             @foreach($productChunk as $product)
-            <div class="col-sm-6 col-md-2 panel panel-default" style="margin: 8px;">
+            <div class="col-xs-2 panel panel-default" style="margin: 18px;">
                 <div class="product">
                     <img class="img" src="{{$product->imagePath}}" alt="...">
 
@@ -40,5 +40,7 @@ Iorga-Bercaru WAD 2016
 
         </div>
     @endforeach
+    <center>{{ $products->links() }}</center>
+
 
 @endsection
