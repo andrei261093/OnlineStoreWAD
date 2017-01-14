@@ -16,7 +16,6 @@ Route::get('/', [
     'as' => 'product.index'
 ]);
 
-
 Route::group(['prefix' => 'user'], function () {
 
     Route::get('/signup', [
@@ -94,11 +93,16 @@ Route::get('/checkout', [
 ]);
 
 Route::post('/checkout', [
-    'uses' => 'productController@postckeckout',
+    'uses' => 'productController@postCheckout',
     'as' => 'checkout'
 ]);
 
 Route::get('/autocomplete', [
     'uses' => 'SearchController@autocomplete',
     'as' => 'autocomplete'
+]);
+
+Route::get('/search', [
+    'uses' => 'SearchController@search',
+    'as' => 'search'
 ]);
