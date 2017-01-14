@@ -13,4 +13,10 @@ class SearchController extends Controller
         $products = Product::select("title as name")->where("title","LIKE","%{$request->input('query')}%")->take(10)->get();
         return response()->json($products);
     }
+
+    public function search(Request $request){
+        $products = Product::where("title","LIKE","%{$request->input('input')}%")->paginate(15);
+        return view('shop.index', ['products' => $products]);;
+    }
+    
 }

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Cart;
+use App\Order;
+
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
@@ -90,6 +93,7 @@ class ProductController extends Controller
         $total = $cart->totalPrice;
         return view('shop.checkout', ['total' => $total]);
     }
+
     public function getVIews($id)
     {
         $product = Product::find($id);
@@ -99,5 +103,24 @@ class ProductController extends Controller
     {
         $products = Product::orderBy('created_at', 'desc')->take(6)->get();
         return view('partials.home', ['products' => $products]);
+    }
+
+    public function postCheckout(Request $request){
+        if(!Session::has('cart')){
+            return redirect()->route('product.shoppingCart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+
+        $order = new Order();
+        $order->cart = serialize($cart);
+        $order->address = $request->input('address');
+        $order->name = $request->input('name');
+
+        Auth::user()->orders()->save($order);
+
+        Session::forget('cart');
+        return redirect()->route('product.index')->with('success', 'Comanda a fost inregistrata!');
+
     }
 }

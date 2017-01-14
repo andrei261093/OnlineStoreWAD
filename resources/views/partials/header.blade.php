@@ -28,15 +28,13 @@
                     </ul>
                 </li>
             </ul>
-            <form class="navbar-form navbar-left">
+            <form action="{{ route('search')}}" class="navbar-form navbar-left">
                 <div class="form-group">
-                    <input type="text" class="typeahead form-control" placeholder="Search Product">
+                    <input type="text" id="input" name="input" class="typeahead form-control" placeholder="Search Product">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-
-
 
                 <li><a href="{{Route('product.shoppingCart')}}">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shop Cart

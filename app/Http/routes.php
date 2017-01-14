@@ -16,7 +16,6 @@ Route::get('/product', [
     'as' => 'product.index'
 ]);
 
-
 Route::group(['prefix' => 'user'], function () {
 
     Route::get('/signup', [
@@ -94,7 +93,7 @@ Route::get('/checkout', [
 ]);
 
 Route::post('/checkout', [
-    'uses' => 'productController@postckeckout',
+    'uses' => 'productController@postCheckout',
     'as' => 'checkout'
 ]);
 
@@ -102,6 +101,7 @@ Route::get('/autocomplete', [
     'uses' => 'SearchController@autocomplete',
     'as' => 'autocomplete'
 ]);
+
 
 Route::get('/views/{id}' , [
     'uses' => 'productController@getViews',
@@ -121,4 +121,10 @@ Route::get('/about',function(){
     return view('partials.about');
 });
 
+
+
+Route::get('/search', [
+    'uses' => 'SearchController@search',
+    'as' => 'search'
+]);
 

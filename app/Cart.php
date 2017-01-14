@@ -45,8 +45,6 @@ class Cart
         {
             unset($this->items[$id]);
         }
-
-
     }
 
     public function removeItem($id)
