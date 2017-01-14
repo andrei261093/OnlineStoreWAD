@@ -90,4 +90,14 @@ class ProductController extends Controller
         $total = $cart->totalPrice;
         return view('shop.checkout', ['total' => $total]);
     }
+    public function getVIews($id)
+    {
+        $product = Product::find($id);
+        return view('shop.viewDetails',['product'=>$product]);
+    }
+    public function getHome()
+    {
+        $products = Product::orderBy('created_at', 'desc')->take(6)->get();
+        return view('partials.home', ['products' => $products]);
+    }
 }

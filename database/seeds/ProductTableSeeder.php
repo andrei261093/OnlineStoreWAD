@@ -16,7 +16,8 @@ class ProductTableSeeder extends Seeder
         	'title' => 'MacBook Pro 2016',
         	'description'=> 'Great performance and new touch bar.',
         	'price' => 6000,
-        	'categoryID' => 1
+        	'categoryID' => 1,
+            'longDescription' =>'It’s faster and more powerful than before, yet remarkably thinner and lighter. It has the brightest, most colorful Mac notebook display ever. And it introduces the Touch Bar — a Multi-Touch enabled strip of glass built into the keyboard for instant access to the tools you want, right when you want them. The new MacBook Pro is built on groundbreaking ideas. And it’s ready for yours.'
         	]);
         $product->save();
 
@@ -25,7 +26,7 @@ class ProductTableSeeder extends Seeder
             'title' => 'iPhone 7',
             'description'=> 'Brand new iPhone 7',
             'price' => 6000,
-            'categoryID' => 1
+            'categoryID' => 2
         ]);
         $product->save();
 
@@ -34,7 +35,7 @@ class ProductTableSeeder extends Seeder
             'title' => 'iPhone 6S',
             'description'=> 'Great performance and new touch bar.',
             'price' => 6000,
-            'categoryID' => 1
+            'categoryID' => 3
         ]);
         $product->save();
 

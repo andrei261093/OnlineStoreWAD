@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', [
+Route::get('/product', [
     'uses' => 'productController@getIndex',
     'as' => 'product.index'
 ]);
@@ -102,3 +102,23 @@ Route::get('/autocomplete', [
     'uses' => 'SearchController@autocomplete',
     'as' => 'autocomplete'
 ]);
+
+Route::get('/views/{id}' , [
+    'uses' => 'productController@getViews',
+    'as' => 'views.detail'
+]);
+
+Route::get('/store' , [
+    'uses' => 'productController@getIndex',
+    'as' => 'product.index'
+]);
+Route::get('/' , [
+    'uses' => 'productController@getHome',
+    'as' => 'home'
+]);
+Route::get('/about',function(){
+
+    return view('partials.about');
+});
+
+

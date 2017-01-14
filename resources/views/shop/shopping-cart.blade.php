@@ -21,7 +21,8 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="{{route('reduce',['id'=> $product['item']['id']] ) }}">Reduce by 1</a>
                                     </li>
-                                    <li><a href="{{route('remove',['id'=> $product['item']['id']] ) }}">Revmove all</a></li>
+                                    <li><a href="{{route('remove',['id'=> $product['item']['id']] ) }}">Remove all</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -31,7 +32,7 @@
         </div>
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <strong>Total price: {{$totalPrice}}</strong>
+                <strong>Total price:{{$totalPrice}} $</strong>
             </div>
         </div>
         <hr>
@@ -43,7 +44,7 @@
     @else
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <h2>Cart Empty!</h2>
+                <img src="http://woodwork.be/media/wysiwyg/empty-cart.jpg" alt="">
             </div>
         </div>
     @endif
