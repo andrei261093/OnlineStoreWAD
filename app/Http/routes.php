@@ -89,7 +89,8 @@ Route::get('/shopping-cart', [
 
 Route::get('/checkout', [
     'uses' => 'productController@getCheckout',
-    'as' => 'checkout'
+    'as' => 'checkout',
+    'middleware' => 'auth'
 ]);
 
 Route::post('/checkout', [
@@ -117,11 +118,8 @@ Route::get('/' , [
     'as' => 'home'
 ]);
 Route::get('/about',function(){
-
     return view('partials.about');
 });
-
-
 
 Route::get('/search', [
     'uses' => 'SearchController@search',
@@ -133,3 +131,37 @@ Route::get('/resetCart', [
 ]);
 
 
+Route::get('/admin', [
+    'uses' => 'ProductController@manageProducts',
+    'as' => 'adminPage'
+]);
+
+Route::get('/delete/{id}', [
+    'uses' => 'productController@getProductDelete',
+    'as' => 'deleteProduct'
+]);
+
+Route::get('/searchAdmin', [
+    'uses' => 'SearchController@adminSearch',
+    'as' => 'adminSearch'
+]);
+
+Route::get('/addProduct', [
+    'uses' => 'productController@getAddProduct',
+    'as' => 'admin.productForm'
+]);
+
+Route::post('/addProduct', [
+    'uses' => 'productController@postAddProduct',
+    'as' => 'admin.productForm'
+]);
+
+Route::get('/addCategory', [
+    'uses' => 'productController@getAddCategory',
+    'as' => 'admin.categoryForm'
+]);
+
+Route::get('/deleteCategory/{id}', [
+    'uses' => 'productController@getCategoryDelete',
+    'as' => 'deleteCategory'
+]);

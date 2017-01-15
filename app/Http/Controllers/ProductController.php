@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Cart;
@@ -16,7 +17,7 @@ class ProductController extends Controller
 {
     public function getIndex()
     {
-        $products = Product::paginate(15);;
+        $products = Product::paginate(15);
 
         return view('shop.index', ['products' => $products]);
     }
@@ -127,6 +128,74 @@ class ProductController extends Controller
     public function resetCart(){
         Session::forget('cart');
         return redirect()->route('product.shoppingCart');
+    }
+
+    
+    public function manageProducts(){
+        $products = Product::orderBy('created_at', 'desc')->paginate(15);
+        return view('shop.admin', ['products' => $products]);
+    }
+
+    public function getProductDelete($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->back();
+    }
+
+    public function getAddProduct(){
+        $categories = Category::all();
+        return view('shop.adminAddProduct', ['categories' => $categories]);
+    }
+
+    public function postAddProduct(Request $request)
+    {
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'longDescription' => 'required',
+            'image' => 'required',
+            'price' => 'required'
+            
+        ]);
+        $product = new Product([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'longDescription' => $request->input('longDescription'),
+            'price' => $request->input('price'),
+            'categoryID' => $request->input('category'),
+            'imagePath' => $request->input('image')
+        ]);
+        $product->save();
+
+        return redirect()->route('adminPage');
+    }
+
+    public function getAddCategory(){
+        $categories = Category::all();
+        return view('shop.adminAddCategory', ['categories' => $categories]);
+    }
+
+    public function postAddCategory(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+
+        ]);
+        $category = new Category([
+            'name' => $request->input('name'),
+        ]);
+        
+        $category->save();
+
+        return redirect()->route('admin.categoryForm');
+    }
+
+    public function getCategoryDelete($id)
+    {
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->back();
     }
 
 }

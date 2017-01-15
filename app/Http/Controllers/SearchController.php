@@ -18,5 +18,10 @@ class SearchController extends Controller
         $products = Product::where("title","LIKE","%{$request->input('input')}%")->paginate(15);
         return view('shop.index', ['products' => $products]);;
     }
+
+    public function adminSearch(Request $request){
+        $products = Product::where("title","LIKE","%{$request->input('input')}%")->paginate(15);
+        return view('shop.admin', ['products' => $products]);;
+    }
     
 }
