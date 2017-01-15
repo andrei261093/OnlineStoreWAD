@@ -31,6 +31,11 @@ class UserController extends Controller
 
         $user->save();
         Auth::login($user);
+        if(Session::has('oldUrl')){
+            $oldUrl = Session::get('oldUrl');
+            Session::forget('oldUrl');
+            return redirect()->to($oldUrl);
+        }
 
         return redirect()->route('user.profile');
     }
@@ -46,7 +51,11 @@ class UserController extends Controller
         ]);
 
         if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
-           //Session::put(Session::get('cart'), Auth::user);
+            if(Session::has('oldUrl')){
+                $oldUrl = Session::get('oldUrl');
+                Session::forget('oldUrl');
+                return redirect()->to($oldUrl);
+            }
             return redirect()->route('user.profile');
         }
         return redirect()->back();
