@@ -132,8 +132,12 @@ class ProductController extends Controller
 
     
     public function manageProducts(){
-        $products = Product::orderBy('created_at', 'desc')->paginate(15);
-        return view('shop.admin', ['products' => $products]);
+        $user = Auth::user();
+        if($user->role === 1){
+            $products = Product::orderBy('created_at', 'desc')->paginate(15);
+            return view('shop.admin', ['products' => $products]);
+        }
+        return view('user.userNotAdmin');
     }
 
     public function getProductDelete($id)
@@ -172,8 +176,12 @@ class ProductController extends Controller
     }
 
     public function getAddCategory(){
-        $categories = Category::all();
-        return view('shop.adminAddCategory', ['categories' => $categories]);
+        $user = Auth::user();
+        if($user->role === 1){
+            $categories = Category::all();
+            return view('shop.adminAddCategory', ['categories' => $categories]);
+        }
+        return view('user.userNotAdmin');
     }
 
     public function postAddCategory(Request $request)

@@ -133,7 +133,8 @@ Route::get('/resetCart', [
 
 Route::get('/admin', [
     'uses' => 'ProductController@manageProducts',
-    'as' => 'adminPage'
+    'as' => 'adminPage',
+    'middleware' => 'auth'
 ]);
 
 Route::get('/delete/{id}', [
@@ -158,7 +159,8 @@ Route::post('/addProduct', [
 
 Route::get('/addCategory', [
     'uses' => 'productController@getAddCategory',
-    'as' => 'admin.categoryForm'
+    'as' => 'admin.categoryForm',
+    'middleware' => 'auth'
 ]);
 
 Route::post('/addCategory', [
