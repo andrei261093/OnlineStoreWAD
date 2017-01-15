@@ -127,4 +127,9 @@ Route::get('/search', [
     'uses' => 'SearchController@search',
     'as' => 'search'
 ]);
+Route::get('/resetCart', [
+    'uses' => 'productController@resetCart',
+    'as' => 'deleteCart'
+]);
+
 

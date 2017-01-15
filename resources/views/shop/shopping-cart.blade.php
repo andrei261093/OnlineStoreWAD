@@ -30,15 +30,19 @@
                 </ul>
             </div>
         </div>
+        <br>
+
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <strong>Total price:{{$totalPrice}} $</strong>
+                <strong>Total price: {{$totalPrice}}$</strong>
+                <a href="{{route('deleteCart')}}" type="button" class="btn btn-danger pull-right">Delete all</a>
             </div>
         </div>
         <hr>
+        <br>
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <a href="{{route('checkout')}}" type="button" class="btn btn-success">Checkout</a>
+                <a href="{{route('checkout')}}" type="button" class="btn btn-success center-block">Checkout</a>
             </div>
         </div>
     @else

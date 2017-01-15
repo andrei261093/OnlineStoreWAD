@@ -14,6 +14,9 @@
 
     <br>
     <br>
+    <br>
+    <br>
+
 
     <div class="row">
         <!-- Carousel -->
@@ -56,21 +59,22 @@
     </div>
     <br>
     <br>
+    <br>
     <h4 class="l1">
         Latest products
     </h4>
 
     <!-- See more products-->
-    @foreach($products->chunk(3) as $productChunk)
+    @foreach($products->chunk(4) as $productChunk)
         <div class="row">
             @foreach($productChunk as $product)
-                <div class="col-sm-4 col-lg-4 col-md-4">
+                <div class="col-sm-3 col-lg-3 col-md-3">
                     <div class="thumbnail">
 
                         <img src="{{$product->imagePath}}" alt="">
 
                         <div class="caption">
-                            <h4 class=" price pull-right">{{$product->price}}</h4>
+                            <h4 class=" price pull-right" style="color: #5e5e5e;">Price:{{$product->price}}$</h4>
                             <h4><a href="{{route('views.detail',[$product->id])}}">{{$product->title}}</a></h4>
 
                             <p class="description">
@@ -83,7 +87,126 @@
 
 
         </div>
-    @endforeach
+        @endforeach
+
+                <!-- our services-->
+        <br>
+
+
+
+        <div class="row text-center">
+            <div class="col-lg-10 col-lg-offset-1">
+                <br>
+
+                <h2>Our Services</h2>
+                <br>
+
+                <hr class="small">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-cloud fa-stack-1x text-primary"></i>
+                            </span>
+                            <h4>
+                                <strong>Buy online</strong>
+                            </h4>
+
+                            <p>You can buy all your dreams.</p>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-compass fa-stack-1x text-primary"></i>
+                            </span>
+                            <h4>
+                                <strong>Best team</strong>
+                            </h4>
+
+                            <p>Our team is in the top of the market.</p>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-flask fa-stack-1x text-primary"></i>
+                            </span>
+                            <h4>
+                                <strong>Best Products</strong>
+                            </h4>
+
+                            <p>We offer you the best and the newst products.</p>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-shield fa-stack-1x text-primary"></i>
+                            </span>
+                            <h4>
+                                <strong>Buy safe</strong>
+                            </h4>
+
+                            <p>Buy your dreams safe using our website.</p>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.col-lg-10 -->
+        </div>
+        <!-- Contact -->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 text-center">
+                <h4><strong>Join us</strong>
+                </h4>
+
+                <p>107 Calea Bucuresti
+                    <br>Craiova, Romania</p>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-phone fa-fw"></i>0761667452</li>
+                    <li><i class="fa fa-phone fa-fw"></i>0737156824</li>
+                    <br>
+                    <li><i class="fa fa-envelope-o fa-fw"></i> <a href="https://account.microsoft.com/?refd=outlook.live.com">bogdan.94@outlook
+                            .com</a>
+                    </li>
+                    <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">andrei261093@icloud
+                            .com</a>
+                    </li>
+                </ul>
+                <br>
+                <ul class="list-inline">
+                    <li>
+                        <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                    </li>
+                </ul>
+                <hr class="small">
+                <p class="text-muted">Copyright &copy; Your Website 2014</p>
+            </div>
+        </div>
 
 
 @endsection

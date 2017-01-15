@@ -101,7 +101,7 @@ class ProductController extends Controller
     }
     public function getHome()
     {
-        $products = Product::orderBy('created_at', 'desc')->take(6)->get();
+        $products = Product::orderBy('created_at', 'asc')->take(8)->get();
         return view('partials.home', ['products' => $products]);
     }
 
@@ -123,4 +123,10 @@ class ProductController extends Controller
         return redirect()->route('product.index')->with('success', 'Comanda a fost inregistrata!');
 
     }
+
+    public function resetCart(){
+        Session::forget('cart');
+        return redirect()->route('product.shoppingCart');
+    }
+
 }
