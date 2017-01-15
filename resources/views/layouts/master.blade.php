@@ -15,7 +15,7 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 
 	@include('partials.header')
-	<div class="container centered">
+	<div class="container-non-responsive centered">
 		@yield('content')
 	</div>
 

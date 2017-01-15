@@ -1,7 +1,17 @@
+.container-non-responsive {
+    /* Margin/padding copied from Bootstrap */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    /* Set width to your desired site width */
+    width: 1170px;
+}
 .product img {
-    height: 100px;
-    width: 150px;
-    margin: 5px;
+    width:150px; /* you can use % */
+    height: auto;
+    margin: 20px;
 }
 
 .product p {

@@ -102,7 +102,7 @@ class ProductController extends Controller
     }
     public function getHome()
     {
-        $products = Product::orderBy('created_at', 'asc')->take(8)->get();
+        $products = Product::orderBy('created_at', 'desc')->take(8)->get();
         return view('partials.home', ['products' => $products]);
     }
 
