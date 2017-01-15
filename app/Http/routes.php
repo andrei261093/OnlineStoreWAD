@@ -161,6 +161,11 @@ Route::get('/addCategory', [
     'as' => 'admin.categoryForm'
 ]);
 
+Route::post('/addCategory', [
+    'uses' => 'productController@postAddCategory',
+    'as' => 'admin.categoryForm'
+]);
+
 Route::get('/deleteCategory/{id}', [
     'uses' => 'productController@getCategoryDelete',
     'as' => 'deleteCategory'
